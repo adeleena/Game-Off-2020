@@ -9,19 +9,30 @@ TODO
 ### Screenshots
 TODO
 
+### Distributions 
+
+    Platform | Status
+    -------- | --------
+    Windows  | TODO 
+    Linux    | TODO
+    Android  | TODO
+
 ## Authors
 
-Author | Contact
+      Author | Contact
 ------------ | -------------
-Adeleena | todo
-Sushu | todo
-Tavee | todo
+    Adeleena | todo
+       Sushu | todo
+       Tavee | todo
 
 ### Contributing
 
 1. Please do not commit directly to the main. Use a feature branch.
+2. Check the issues link to see the user stories for the project.
 
 ## Made with Love
+
+Made using [Love2D 11.3] (https://love2d.org)
 
 ### Libraries Used
 
