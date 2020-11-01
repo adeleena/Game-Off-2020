@@ -11,19 +11,19 @@ TODO
 
 ### Distributions 
 
-    Platform | Status
-    -------- | --------
-    Windows  | TODO 
-    Linux    | TODO
-    Android  | TODO
+Platform | Status
+-------- | --------
+Windows  | TODO 
+Linux    | TODO
+Android  | TODO
 
 ## Authors
 
-      Author | Contact
+Author | Contact
 ------------ | -------------
-    Adeleena | todo
-       Sushu | todo
-       Tavee | todo
+Adeleena | todo
+Sushu | todo
+Tavee | todo
 
 ### Contributing
 
