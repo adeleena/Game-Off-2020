@@ -1,0 +1,3 @@
+local mainmenu = {}
+
+return mainmenu
