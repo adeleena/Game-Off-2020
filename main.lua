@@ -2,6 +2,7 @@
 Camera = require 'lib.hump.camera'
 Timer = require 'lib.hump.timer'
 Colors = require 'utils.colors'
+util = require 'utils.util'
 
 --UI should not be a global.
 UI = require 'lib.gspot'
@@ -19,7 +20,7 @@ function love.update(dt)
 end
 
 function love.draw()
-
+    util.worldDebugDraw(20, 20)
 end
 
 --Global keyboard
