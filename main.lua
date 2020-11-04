@@ -7,7 +7,16 @@ util = require 'utils.util'
 --UI should not be a global.
 UI = require 'lib.gspot'
 
+--State of the games.
+state = require 'gamestate'
+
+mainmenu = require 'scene.mainmenu'
+
 function love.load()
+
+    --state.init()
+    state:addState(mainmenu)
+
     --Load here scenes.
     oldLMBDown = false    
     oldRMBDown = false
@@ -15,12 +24,14 @@ end
 
 function love.update(dt)
 
+    state:update(dt)
+
     oldLMBDown = love.mouse.isDown(1)
     oldRMBDown = love.mouse.isDown(2)
 end
 
 function love.draw()
-    util.worldDebugDraw(20, 20)
+    state:draw()
 end
 
 --Global keyboard
