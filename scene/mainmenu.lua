@@ -1,4 +1,6 @@
 local mainmenu = {
+    --Todo: @boctavian96 update this
+    ui = {}
 
     update = function(self, dt)
 
