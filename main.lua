@@ -4,9 +4,6 @@ Timer = require 'lib.hump.timer'
 Colors = require 'utils.colors'
 util = require 'utils.util'
 
---UI should not be a global.
---UI = require 'lib.gspot'
-
 --State of the games.
 state = require 'gamestate'
 
