@@ -36,6 +36,16 @@ local GameState = {
     switchTo = function(self, state_id)
         assert(stade_id <= #states, 'The state didn\'t exist')
         self.state = state_id
+    end,
+
+    switchToSName = function(self, state_name)
+        for k, v in ipairs(self.states) do
+            if v.name == state_name then 
+                self:switchTo(k)
+            end
+        end
+
+        assert('There is no state with the name: ' .. state_name)
     end
 }
 

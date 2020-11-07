@@ -1,10 +1,11 @@
 local mainmenu = {
-    --Todo: @boctavian96 update this
+    
+    name,
     ui = require 'lib.gspot',
     title = {},
 
     init = function(self)
-        --Simple ui text...
+        self.name = 'mainmenu'
 
         local unit_size = self.ui.style.unit
         local center = unit_size * 20
