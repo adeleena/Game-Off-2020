@@ -40,10 +40,13 @@ local mainmenu = {
     end,
 
     draw = function(self)
-        self:drawDebug()
         love.graphics.print(self.title[1], self.title[2], self.title[3])
 
         self.ui:draw()
+
+        if(DEBUG_MODE) then 
+            self:drawDebug()
+        end
     end,
 
     mousePress = function(self, x, y, button)
