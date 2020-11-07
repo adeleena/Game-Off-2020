@@ -16,13 +16,19 @@ local mainmenu = {
             print('[DEBUG]: I\'m clicking start')
         end
 
-        local aboutButton = self.ui:button('About', {x = center, y = 17 * unit_size, w = 128, h = unit_size})
+        local optionsButton = self.ui:button('Settings', {x = center, y = 17 * unit_size, w = 128, h = unit_size})
+        optionsButton.click = function()
+            --Debug 
+            print('[DEBUG]: I\'m clicking settings')
+        end
+
+        local aboutButton = self.ui:button('About', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
         aboutButton.click = function()
             --Debug
             print('[DEBUG]: I\'m clicking about')
         end
 
-        local exitButton = self.ui:button('Exit', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
+        local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})
         exitButton.click = function()
             --Debug
             print('[DEBUG]: I\'m clicking exit')

@@ -4,8 +4,9 @@ local GameState = {
 
     update = function(self, dt) 
         self.states[self.state]:update(dt)
-        --self:keyboard(dt)
-        self:mouse()
+        self:mouseP()
+        self:mouseR()
+        self:mouseW()
     end,
 
     draw = function(self)
@@ -16,9 +17,16 @@ local GameState = {
         self.states[self.state]:handleKeyboard(dt, key, scancode, isrepeat)
     end,
 
-    mouse = function(self, x, y, button)
+    mouseP = function(self, x, y, button)
         self.states[self.state]:mousePress(x, y, button)
+    end,
+
+    mouseR = function(self, x, y, button)
         self.states[self.state]:mouseRelease(x, y, button)
+    end,
+
+    mouseW = function(self, x, y)
+        --TODO: Check if this feature in needed...
     end,
 
     addState = function(self, new_state)

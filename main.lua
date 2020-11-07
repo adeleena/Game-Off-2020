@@ -54,11 +54,11 @@ end
 
 --Registering mouse events.
 love.mousepressed = function(x, y, button)
-	STATE:mouse(x, y, button)
+	STATE:mouseP(x, y, button)
 end
 love.mousereleased = function(x, y, button)
-	STATE:mouse(x, y, button)
+	STATE:mouseR(x, y, button)
 end
 love.wheelmoved = function(x, y)
-	STATE:mousewheel(x, y)
+	STATE:mouseW(x, y)
 end
