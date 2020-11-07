@@ -6,10 +6,25 @@ local mainmenu = {
         --Simple ui text...
 
         --Simple ui buttons
-        local startButton = self.ui:button('Start', {x = 128, y = gui.style.unit, w = 128, h = gui.style.unit})
+        local startButton = self.ui:button('Start', {x = 128, y = self.ui.style.unit, w = 128, h = self.ui.style.unit})
         startButton.click = function()
-            --Do some stuff...
+            --Debug
+            print('[DEBUG]: I\'m clicking start')
         end
+
+        local aboutButton = self.ui:button('About', {x = 128, y = 3 * self.ui.style.unit, w = 128, h = self.ui.style.unit})
+        aboutButton.click = function()
+            --Debug
+            print('[DEBUG]: I\'m clicking about')
+        end
+
+        local exitButton = self.ui:button('Exit', {x = 128, y = 5 * self.ui.style.unit, w = 128, h = self.ui.style.unit})
+        exitButton.click = function()
+            --Debug
+            print('[DEBUG]: I\'m clicking exit')
+            love.event.quit(1)
+        end
+
     end,
 
     update = function(self, dt)

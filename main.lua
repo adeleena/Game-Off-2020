@@ -14,10 +14,12 @@ mainmenu = require 'scene.mainmenu'
 
 function love.load()
 
-    --state.init()
-    state:addState(mainmenu)
+    mainmenu:init()
 
     --Load here scenes.
+    state:addState(mainmenu)
+
+    --Check old mouse.
     oldLMBDown = false    
     oldRMBDown = false
 end
