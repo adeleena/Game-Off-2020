@@ -5,19 +5,20 @@ local GameState = {
     update = function(self, dt) 
         self.states[self.state]:update(dt)
         --self:keyboard(dt)
-        --self:mouse()
+        self:mouse()
     end,
 
     draw = function(self)
         self.states[self.state]:draw()
     end,
 
-    keyboard = function(self, dt)
-        self.states[self.state]:handleKeyboard(dt)
+    keyboard = function(self, dt, key, scancode, isrepeat)
+        self.states[self.state]:handleKeyboard(dt, key, scancode, isrepeat)
     end,
 
-    mouse = function(self)
-        self.states[self.state]:handleMouse()
+    mouse = function(self, x, y, button)
+        self.states[self.state]:mousePress(x, y, button)
+        self.states[self.state]:mouseRelease(x, y, button)
     end,
 
     addState = function(self, new_state)

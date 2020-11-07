@@ -5,7 +5,7 @@ Colors = require 'utils.colors'
 util = require 'utils.util'
 
 --UI should not be a global.
-UI = require 'lib.gspot'
+--UI = require 'lib.gspot'
 
 --State of the games.
 state = require 'gamestate'
@@ -34,14 +34,28 @@ function love.draw()
     state:draw()
 end
 
---Global keyboard
 function love.keypressed(key, scancode, isrepeat)
+    --Global keyboard.
     if key == 'q' then 
         love.event.quit(1)
     end
+
+    --Local state keyboard.
+    state:keyboard(dt, key, scancode, isrepeat)
 end
 
 --Load an animation.
 function newAnimation(spreadsheet, width, height, duration)
 
+end
+
+--Registering mouse events.
+love.mousepressed = function(x, y, button)
+	state:mouse(x, y, button)
+end
+love.mousereleased = function(x, y, button)
+	state:mouse(x, y, button)
+end
+love.wheelmoved = function(x, y)
+	state:mousewheel(x, y)
 end
