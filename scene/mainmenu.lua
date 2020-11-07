@@ -63,7 +63,7 @@ local mainmenu = {
     end,
 
     drawDebug = function(self) 
-        util.worldDebugDraw(self.ui.style.unit, self.ui.style.unit)
+        UTIL.worldDebugDraw(self.ui.style.unit, self.ui.style.unit)
     end,
 
 }
