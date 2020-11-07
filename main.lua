@@ -48,7 +48,7 @@ end
 
 --Load an animation.
 function newAnimation(spreadsheet, width, height, duration)
-
+    --@boctavian96: TODO.
 end
 
 --Registering mouse events.
