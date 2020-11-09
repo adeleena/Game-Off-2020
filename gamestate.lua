@@ -34,7 +34,7 @@ local GameState = {
     end,
 
     switchTo = function(self, state_id)
-        assert(stade_id <= #states, 'The state didn\'t exist')
+        -- assert(stade_id <= #self.states, 'The state didn\'t exist')
         self.state = state_id
     end
 }

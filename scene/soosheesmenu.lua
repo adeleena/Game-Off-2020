@@ -1,4 +1,4 @@
-local mainmenu = {
+local soosheesmenu = {
     --Todo: @boctavian96 update this
     ui = require 'lib.gspot',
     title = {},
@@ -19,39 +19,6 @@ local mainmenu = {
         local welcomeText = self.ui:text('Main Menu', {x = self.center_w, y = self.center_h, w = 128, h = self.unit_size})
         welcomeText.update = update_function
         welcomeText.offset = 0
-
-        --Simple ui buttons
-        local startButton = self.ui:button('Start', {x = self.center_w, y = self.center_h + self.unit_size, w = 128, h = self.unit_size})
-        startButton.click = function()
-            startButton:hide()
-            --Debug
-            print('[DEBUG]: I\'m clicking start')
-            soosheesmenu = require 'scene.soosheesmenu'
-            soosheesmenu:init()
-            STATE:addState(soosheesmenu)
-            STATE:switchTo(2)
-        end
-
-        startButton.update = update_function
-        startButton.offset = 1
-
-        local optionsButton = self.ui:button('Settings', {x = center_w, y = 17 * self.unit_size, w = 128, h = self.unit_size})
-        optionsButton.click = function()
-            --Debug 
-            print('[DEBUG]: I\'m clicking settings')
-        end
-
-        optionsButton.update = update_function
-        optionsButton.offset = 2
-
-        local aboutButton = self.ui:button('About', {x = center_w, y = 19 * self.unit_size, w = 128, h = self.unit_size})
-        aboutButton.click = function()
-            --Debug
-            print('[DEBUG]: I\'m clicking about')
-        end
-
-        aboutButton.update = update_function
-        aboutButton.offset = 3
 
         local exitButton = self.ui:button('Exit', {x = center_w, y = 21 * self.unit_size, w = 128, h = self.unit_size})
         exitButton.click = function()
@@ -101,4 +68,4 @@ local mainmenu = {
 
 }
 
-return mainmenu
+return soosheesmenu
