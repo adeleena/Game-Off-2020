@@ -1,3 +1,9 @@
+--Get the dependencies.
+local class = require 'lib.middleclass'
+local AbstractScene = require 'scene.abstract_scene'
+
+local mainmenu = class('Mainmenu', AbstractScene)
+
 local mainmenu = {
     
     name,

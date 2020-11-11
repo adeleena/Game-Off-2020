@@ -8,7 +8,7 @@ local about = class('About', AbstractScene)
 about.title = {}
 
 function about:init()
-    
+
         local unit_size = self.ui.style.unit
         local center = unit_size * 20
 
@@ -20,7 +20,7 @@ function about:init()
             STATE:switchTo(mainmenu)
         end
 
-        table.insert(self.ui, backButton)
+        table.insert(self.ui_elements, backButton)
 
 
         table.insert(self.title, 'About')

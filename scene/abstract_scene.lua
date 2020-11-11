@@ -6,17 +6,18 @@ local AbstractScene = class('AbstractScene')
 
 --Some member variables.
 AbstractScene.ui = require 'lib.gspot'
+AbstractScene.ui_elements = {}
 
 --The functions
 ----Hide the UI for the scene. To be used before SCENE.switchTo(...)
 function AbstractScene:dispose()
-    for k, v in ipairs(self.ui) do 
+    for k, v in ipairs(self.ui_elements) do 
         v:hide()
     end
 end
 
 function AbstractScene:show()
-    for k, v in ipairs(self.ui) do 
+    for k, v in ipairs(self.ui_elements) do 
         v:show()
     end
 end
