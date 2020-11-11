@@ -1,13 +1,14 @@
+--Get the dependencies.
 local class = require 'lib.middleclass'
 local AbstractScene = require 'scene.abstract_scene'
 
+--Inherit from AbstractScene
 local about = class('About', AbstractScene)
 
 about.title = {}
 
 function about:init()
-    --self.name = 'about'
-
+    
         local unit_size = self.ui.style.unit
         local center = unit_size * 20
 
