@@ -7,6 +7,13 @@ UTIL = require 'utils.util'
 --State of the games.
 STATE = require 'gamestate'
 
+--Game state enum
+ENUM_STATES = {
+    MAIN_MENU = 1,
+    ABOUT_MENU = 2, 
+    SETTINGS_MENU = 3,
+}
+
 DEBUG_MODE = false
 
 function love.load()

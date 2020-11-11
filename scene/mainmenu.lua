@@ -32,7 +32,7 @@ local mainmenu = {
             about = require 'scene.about'
             about:init()
             STATE:addState(about)
-            STATE:switchTo(2)
+            STATE:switchTo(ENUM_STATES.ABOUT_MENU)
         end
 
         local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})
