@@ -27,7 +27,6 @@ function mainmenu:init()
     local aboutButton = self.ui:button('About', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
     aboutButton.click = function()
         --Debug
-        self:dispose()
         print('[INFO]: I\'m clicking about')
         about = require 'scene.about'
         about:init()

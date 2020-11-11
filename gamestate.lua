@@ -28,15 +28,11 @@ local GameState = {
         --TODO: Check if this feature in needed...
     end,
 
-    --OBSOLETTE
-    --[[
-    addState = function(self, new_state)
-        table.insert(self.states, new_state)
-    end,
-    ]]
-
     switchTo = function(self, new_state)
-        --assert(stade_id <= #self.states, 'The state didn\'t exist')
+        --Dispose the old state.
+        self.state:dispose()
+
+        --Set the new state.
         self.state = new_state
     end,
 
