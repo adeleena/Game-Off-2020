@@ -3,6 +3,7 @@ local mainmenu = {
     name,
     ui = require 'lib.gspot',
     title = {},
+    ui_elements = {},
 
     init = function(self)
         self.name = 'mainmenu'
@@ -26,7 +27,12 @@ local mainmenu = {
         local aboutButton = self.ui:button('About', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
         aboutButton.click = function()
             --Debug
+            self:dispose()
             print('[INFO]: I\'m clicking about')
+            about = require 'scene.about'
+            about:init()
+            STATE:addState(about)
+            STATE:switchTo(2)
         end
 
         local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})
@@ -35,6 +41,12 @@ local mainmenu = {
             print('[INFO]: I\'m clicking exit')
             love.event.quit(1)
         end
+
+        --Add the ui elements in a table.
+        table.insert(self.ui_elements, startButton)
+        table.insert(self.ui_elements, optionsButton)
+        table.insert(self.ui_elements, aboutButton)
+        table.insert(self.ui_elements, exitButton)
 
         table.insert(self.title, 'Main Menu')
         table.insert(self.title, center)
@@ -53,6 +65,13 @@ local mainmenu = {
 
         if(DEBUG_MODE) then 
             --self:drawDebug()
+        end
+    end,
+
+    dispose = function(self)
+        for k, v in ipairs(self.ui_elements) do
+            v:hide()
+            print('Hide element')
         end
     end,
 
