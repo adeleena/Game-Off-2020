@@ -31,8 +31,7 @@ local mainmenu = {
             print('[INFO]: I\'m clicking about')
             about = require 'scene.about'
             about:init()
-            STATE:addState(about)
-            STATE:switchTo(ENUM_STATES.ABOUT_MENU)
+            STATE:switchTo(about)
         end
 
         local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})

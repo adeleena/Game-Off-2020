@@ -25,8 +25,7 @@ function love.load()
     mainmenu:init()
 
     --Load here scenes.
-    STATE:addState(mainmenu)
-    STATE:addState(about)
+    STATE:switchTo(mainmenu)
 
     --Check old mouse.
     oldLMBDown = false    
