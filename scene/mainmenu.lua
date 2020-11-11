@@ -28,6 +28,7 @@ function mainmenu:init()
     aboutButton.click = function()
         --Debug
         print('[INFO]: I\'m clicking about')
+        self:dispose()
         about = require 'scene.about'
         about:init()
         STATE:switchTo(about)

@@ -15,6 +15,7 @@ function about:init()
         local backButton = self.ui:button('Back', {x = 100, y = 100, w = 128, h = unit_size})
         backButton.click = function()
             local mainmenu = require 'scene.mainmenu'
+            self:dispose()
             mainmenu:init()
             STATE:switchTo(mainmenu)
         end

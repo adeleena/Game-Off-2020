@@ -29,9 +29,6 @@ local GameState = {
     end,
 
     switchTo = function(self, new_state)
-        --Dispose the old state.
-        self.state:dispose()
-
         --Set the new state.
         self.state = new_state
     end,
