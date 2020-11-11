@@ -12,6 +12,9 @@ WORLD_WIDTH = 0
 WORLD_HEIGHT = 0
 WORLD_UNIT = 16
 
+--UI Alignment.
+ALIGNMENT = require 'utils.alignment'
+
 DEBUG_MODE = false
 
 function love.load()
