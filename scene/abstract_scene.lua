@@ -30,4 +30,8 @@ function AbstractScene:mouseRelease(x, y, button)
     self.ui:mouserelease(x, y, button)
 end
 
+function AbstractScene:handleKeyboard(dt, key, scancode, isrepeat)
+    --TODO...
+end
+
 return AbstractScene
