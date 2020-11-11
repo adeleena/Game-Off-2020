@@ -7,9 +7,17 @@ UTIL = require 'utils.util'
 --State of the games.
 STATE = require 'gamestate'
 
+--Display size.
+WORLD_WIDTH = 0
+WORLD_HEIGHT = 0
+WORLD_UNIT = 16
+
 DEBUG_MODE = false
 
 function love.load()
+
+    WORLD_WIDTH = love.graphics.getWidth()
+    WORLD_HEIGHT = love.graphics.getHeight()
 
     debug = require 'utils.debug'
     debug:init()
@@ -29,6 +37,9 @@ function love.update(dt)
 
     STATE:update(dt)
     debug:update(dt)
+
+    WORLD_HEIGHT = love.graphics.getHeight()
+    WORLD_WIDTH = love.graphics.getWidth()
 
     oldLMBDown = love.mouse.isDown(1)
     oldRMBDown = love.mouse.isDown(2)

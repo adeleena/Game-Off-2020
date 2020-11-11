@@ -16,11 +16,9 @@ local util={
     end,
 
     worldDebugDraw = function(self, worldUnitX, worldUnitY)
-        screenWidth = love.graphics.getWidth()
-        screenHeight = love.graphics.getHeight()
 
-        for i=0, screenWidth, worldUnitX do 
-            for j=0, screenHeight, worldUnitY do
+        for i=0, WORLD_WIDTH, worldUnitX do 
+            for j=0, WORLD_HEIGHT, worldUnitY do
                 if(self.isSquareHovered(i, j, worldUnitX)) then
                     love.graphics.setColor(COLORS.YELLOW)
                     love.graphics.print('Square(x, y): ' .. i .. ', ' .. j, 0, 300)

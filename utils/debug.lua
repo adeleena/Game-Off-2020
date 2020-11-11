@@ -11,9 +11,9 @@ debug = {
     oldGDown,
 
     init = function(self)
-        self.screenWidth = love.graphics.getWidth()
-        self.screenHeight = love.graphics.getHeight()
-        self.unitSize = 16
+        self.screenWidth = WORLD_WIDTH
+        self.screenHeight = WORLD_HEIGHT
+        self.unitSize = WORLD_UNIT
         self.widthUnits = self.screenWidth / self.unitSize
         self.heightUnits = self.screenHeight / self.unitSize
         self.fps = 0
@@ -23,7 +23,13 @@ debug = {
 
     update = function(self, dt)
         if(DEBUG_MODE) then
+            --Update every variable.
             self.fps = 1 / dt
+            self.screenWidth = WORLD_WIDTH
+            self.screenHeight = WORLD_HEIGHT
+            self.unitSize = WORLD_UNIT
+            self.widthUnits = self.screenWidth / self.unitSize
+            self.heightUnits = self.screenHeight / self.unitSize
 
             self.mx, self.my = love.mouse.getPosition()
 
