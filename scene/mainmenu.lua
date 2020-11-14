@@ -1,80 +1,74 @@
-local mainmenu = {
-    --Todo: @boctavian96 update this
-    ui = require 'lib.gspot',
-    title = {},
+--Get the dependencies.
+local class = require 'lib.middleclass'
+local AbstractScene = require 'scene.abstract_scene'
 
-    init = function(self)
-        --Simple ui text...
+local mainmenu = class('Mainmenu', AbstractScene)
 
-        local unit_size = self.ui.style.unit
-        local center = unit_size * 20
+mainmenu.title = {}
 
-        --Simple ui buttons
-        local startButton = self.ui:button('Start', {x = center, y = 15 * unit_size, w = 128, h = unit_size})
-        startButton.click = function()
-            --Debug
-            print('[DEBUG]: I\'m clicking start')
-        end
+function mainmenu:init()
 
-        local optionsButton = self.ui:button('Settings', {x = center, y = 17 * unit_size, w = 128, h = unit_size})
-        optionsButton.click = function()
-            --Debug 
-            print('[DEBUG]: I\'m clicking settings')
-        end
+    local unit_size = self.ui.style.unit
+    local center = unit_size * 20
 
-        local aboutButton = self.ui:button('About', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
-        aboutButton.click = function()
-            --Debug
-            print('[DEBUG]: I\'m clicking about')
-        end
+    --Simple ui buttons
+    local startButton = self.ui:button('Start', {x = center, y = 15 * unit_size, w = 128, h = unit_size})
+    startButton.click = function()
+        --Debug
+        print('[INFO]: I\'m clicking start')
+    end
 
-        local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})
-        exitButton.click = function()
-            --Debug
-            print('[DEBUG]: I\'m clicking exit')
-            love.event.quit(1)
-        end
+    local optionsButton = self.ui:button('Settings', {x = center, y = 17 * unit_size, w = 128, h = unit_size})
+    optionsButton.click = function()
+        --Debug 
+        print('[INFO]: I\'m clicking settings')
+    end
 
-        table.insert(self.title, 'Main Menu')
-        table.insert(self.title, center)
-        table.insert(self.title, unit_size)
+    local aboutButton = self.ui:button('About', {x = center, y = 19 * unit_size, w = 128, h = unit_size})
+    aboutButton.click = function()
+        --Debug
+        print('[INFO]: I\'m clicking about')
+        self:dispose()
+        about = require 'scene.about'
+        about:init()
+        STATE:switchTo(about)
+    end
 
-    end,
+    local exitButton = self.ui:button('Exit', {x = center, y = 21 * unit_size, w = 128, h = unit_size})
+    exitButton.click = function()
+        --Debug
+        print('[INFO]: I\'m clicking exit')
+        love.event.quit(1)
+    end
 
-    update = function(self, dt)
-        self.ui:update(dt)
-    end,
+    --Add the ui elements in a table.
+    table.insert(self.ui_elements, startButton)
+    table.insert(self.ui_elements, optionsButton)
+    table.insert(self.ui_elements, aboutButton)
+    table.insert(self.ui_elements, exitButton)
 
-    draw = function(self)
-        love.graphics.print(self.title[1], self.title[2], self.title[3])
+    table.insert(self.title, 'Main Menu')
+    table.insert(self.title, center)
+    table.insert(self.title, unit_size)
 
-        self.ui:draw()
+end
 
-        if(DEBUG_MODE) then 
-            self:drawDebug()
-        end
-    end,
+function mainmenu:update(dt)
+    self.ui:update(dt)
+end
 
-    mousePress = function(self, x, y, button)
-        self.ui:mousepress(x, y, button)
-    end,
+function mainmenu:draw()
+    love.graphics.print(self.title[1], self.title[2], self.title[3])
 
-    mouseRelease = function(self, x, y, button)
-        self.ui:mouserelease(x, y, button)
-    end, 
+    self.ui:draw()
 
-    handleKeyboard = function(self, dt, key, scancode, isrepeat)
-        --To test local keyboard.
-        if key == 'w' then 
-            love.event.quit(1)
-            print('[DEBUG]: Quit from mainMenu')
-        end
-    end,
+    if(DEBUG_MODE) then 
+        --self:drawDebug()
+    end
+end
 
-    drawDebug = function(self) 
-        UTIL.worldDebugDraw(self.ui.style.unit, self.ui.style.unit)
-    end,
-
-}
+function mainmenu:drawDebug()
+    UTIL.worldDebugDraw(self.ui.style.unit, self.ui.style.unit)
+end
 
 return mainmenu
