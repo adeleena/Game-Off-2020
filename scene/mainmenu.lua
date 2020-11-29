@@ -21,7 +21,6 @@ function mainmenu:init()
     startButton.offsetX = 0
     startButton.offsetY = 0
     startButton.click = function()
-        --Debug
         print('[INFO]: I\'m clicking start')
     end
 
@@ -30,7 +29,6 @@ function mainmenu:init()
     optionsButton.offsetX = 0
     optionsButton.offsetY = 2
     optionsButton.click = function()
-        --Debug 
         print('[INFO]: I\'m clicking settings')
     end
 
@@ -39,7 +37,6 @@ function mainmenu:init()
     aboutButton.offsetX = 0
     aboutButton.offsetY = 4
     aboutButton.click = function()
-        --Debug
         print('[INFO]: I\'m clicking about')
         self:dispose()
         about = require 'scene.about'
@@ -52,7 +49,6 @@ function mainmenu:init()
     exitButton.offsetX = 0
     exitButton.offsetY = 6
     exitButton.click = function()
-        --Debug
         print('[INFO]: I\'m clicking exit')
         love.event.quit(1)
     end
@@ -77,14 +73,6 @@ function mainmenu:draw()
     love.graphics.print(self.title[1], self.title[2], self.title[3])
 
     self.ui:draw()
-
-    if(DEBUG_MODE) then 
-        --self:drawDebug()
-    end
-end
-
-function mainmenu:drawDebug()
-    UTIL.worldDebugDraw(self.ui.style.unit, self.ui.style.unit)
 end
 
 return mainmenu
